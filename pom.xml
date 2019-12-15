@@ -8,5 +8,75 @@
     <artifactId>OrderSeatTest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <org.springframework.version>4.3.18.RELEASE</org.springframework.version>
+        <lib.common.version>1.0</lib.common.version>
+        <lib.dal.version>1.0</lib.dal.version>
+        <lib.facade.version>1.0</lib.facade.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>SmartLib</groupId>
+            <artifactId>lib-facade</artifactId>
+            <version>${lib.facade.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.meituan.octo</groupId>
+            <artifactId>dorado</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.12.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.25.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.collect</groupId>
+            <artifactId>com.springsource.com.google.common.collect</artifactId>
+            <version>0.8.0.20080820</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-test</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+    </dependencies>
+
 
 </project>
