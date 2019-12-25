@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<context:property-placeholder location="classpath:spring-config.xml" />-->
+
     <!-- 座位查询接口 -->
     <bean id="SeatInfoClient" class="com.meituan.dorado.config.service.spring.ReferenceBean">
         <property name="appkey" value="com.orderseat.test"/>       <!-- 调用端appkey -->
         <property name="remoteAppkey" value="com.orderseat.service"/> <!-- 服务端appkey -->
         <property name="serviceInterface" value="com.orderseat.facade.SeatInfoService"/>        <!-- 服务接口类 -->
-        <property name="registry" value="zookeeper://${zk.address}"/>      <!-- 服务发现的zk地址 -->
+        <!--<property name="registry" value="zookeeper://106.15.195.195:2181"/>      &lt;!&ndash; 服务发现的zk地址 &ndash;&gt;-->
+        <property name="registry" value="mock"/>
+        <property name="directConnAddress" value="localhost:9001"/>
     </bean>
 
     <!-- 占座查询接口 -->
@@ -14,6 +20,8 @@
         <property name="appkey" value="com.orderseat.test" />
         <property name="remoteAppkey" value="com.orderseat.service"/>
         <property name="serviceInterface" value="com.orderseat.facade.OrderSeatService"/>
-        <property name="registry" value="zookeeper://${zk.address}"/>
+        <!--<property name="registry" value="zookeeper://106.15.195.195:2181"/>-->
+        <property name="registry" value="mock"/>
+        <property name="directConnAddress" value="localhost:9001"/>
     </bean>
 </beans>
