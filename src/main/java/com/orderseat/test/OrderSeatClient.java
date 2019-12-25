@@ -4,6 +4,7 @@ import com.orderseat.facade.OrderSeatService;
 import com.orderseat.facade.SeatInfoService;
 import com.orderseat.facade.dto.OrderSeatDto;
 import com.orderseat.facade.request.OrderSeatRequest;
+import com.orderseat.facade.response.OrderSeatResponse;
 import org.apache.thrift.TException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -25,6 +26,7 @@ public class OrderSeatClient {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("spring-config.xml");
 
         OrderSeatService.Iface client = (OrderSeatService.Iface) beanFactory.getBean("OrderSeatClient");
-        client.orderSeat(orderSeatRequest);
+        OrderSeatResponse orderSeatResponse = client.orderSeat(orderSeatRequest);
+        System.out.println(orderSeatResponse.seatResult);
     }
 }
