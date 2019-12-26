@@ -1,7 +1,6 @@
 package com.orderseat.test;
 
 import com.orderseat.facade.OrderSeatService;
-import com.orderseat.facade.SeatInfoService;
 import com.orderseat.facade.dto.OrderSeatDto;
 import com.orderseat.facade.request.OrderSeatRequest;
 import com.orderseat.facade.response.OrderSeatResponse;
@@ -16,8 +15,8 @@ public class OrderSeatClient {
     public static void main(String[] args) throws TException {
         OrderSeatDto orderSeatDto = new OrderSeatDto();
         orderSeatDto.setId("1");
-        orderSeatDto.setStartTime("201912240800");
-        orderSeatDto.setEndTime("201912241000");
+        orderSeatDto.setStartTime("201912270800");
+        orderSeatDto.setEndTime("201912271000");
         orderSeatDto.setUserId("0");
         List<OrderSeatDto> list = new ArrayList<OrderSeatDto>();
         list.add(orderSeatDto);
