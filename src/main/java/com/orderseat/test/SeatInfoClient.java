@@ -20,32 +20,39 @@ public class SeatInfoClient {
     public static void main(String[] args) throws TException {
         SeatInfoDto seatInfoDto = new SeatInfoDto();
         // 座位id
-        seatInfoDto.setId("1");
+//        seatInfoDto.setId("1");
         // 建筑id
-        seatInfoDto.setBuildingId("1");
+        seatInfoDto.setBuildingId("2");
         // 楼层
-        seatInfoDto.setFloorId("1");
+        seatInfoDto.setFloorId("3");
         // 座位类型
-        seatInfoDto.setSeatType("");
+        seatInfoDto.setSeatType("1");
 
         SeatInfoRequest seatInfoRequest = new SeatInfoRequest();
         seatInfoRequest.setSeatInfoDto(seatInfoDto);
         // 座位开始位置
         seatInfoRequest.setPageNum(1);
         // 总共返回的条数
-        seatInfoRequest.setPageSize(10);
+        seatInfoRequest.setPageSize(1);
 
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("spring-config.xml");
 
         SeatInfoService.Iface client = (SeatInfoService.Iface) beanFactory.getBean("SeatInfoClient");
 
         // 查询到的座位信息
-        SeatInfoResponse seatInfoResponse = client.search(seatInfoRequest);
+//        SeatInfoResponse seatInfoResponse = client.search(seatInfoRequest);
+//        SeatInfoResponse seatInfoResponse = client.deleteSeat(seatInfoRequest);
+        SeatInfoResponse seatInfoResponse = client.add(seatInfoRequest);
 
         List<SeatInfoDto> list = seatInfoResponse.getSeatInfoDtoList();
 
         for (SeatInfoDto seatInfoDto1 : list) {
             System.out.println("座位id：" + seatInfoDto1.getId());
+            System.out.println("建筑id：" + seatInfoDto1.getBuildingId());
+            System.out.println("楼层id：" + seatInfoDto1.getFloorId());
+            System.out.println("座位类型：" + seatInfoDto1.getSeatType());
+            System.out.println("座位描述：" + seatInfoDto1.getDesc());
+
         }
         System.out.println("座位状态：" + seatInfoResponse.getResultCode());
         System.out.println("座位描述：" + seatInfoResponse.getDesc());
